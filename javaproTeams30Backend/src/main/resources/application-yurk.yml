@@ -1,0 +1,41 @@
+server:
+  port: 8086
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/network
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: never
+    data: classpath:/db/changelog/data.sql
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.yaml
+    enabled: true
+  redis:
+    host: localhost
+  cache:
+    type: none
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      group-id: yuriGroup
+auth:
+  secret: someSecretCode
+  time-to-live: 3600000000
+  pass-restore: http://localhost:8080/change-password?token=
+  email-restore: http://localhost:8080/shift-email?token=
+logging:
+  file:
+    uploadLogs: false
+  level:
+    root: info
+
+
+
+
+

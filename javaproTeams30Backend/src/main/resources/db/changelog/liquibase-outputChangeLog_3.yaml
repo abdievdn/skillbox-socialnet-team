@@ -1,0 +1,89 @@
+databaseChangeLog:
+- changeSet:
+    id: sprint-5-1
+    author: YurK
+    changes:
+    - addColumn:
+        tableName: persons
+        column:
+            name: telegram_id
+            type: BIGINT
+- changeSet:
+    id: sprint-5-2
+    author: YurK
+    changes:
+    - dropUniqueConstraint:
+        columnNames: first_name, last_name
+        constraintName: full_name_index
+        tableName: persons
+- changeSet:
+    id: sprint-5-3
+    author: YurK
+    changes:
+    - addUniqueConstraint:
+        columnNames: email
+        constraintName: email_index
+        tableName: persons
+- changeSet:
+    id: sprint-5-4
+    author: YurK
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: first_name
+        indexName: first_name_index
+        tableName: persons
+- changeSet:
+    id: sprint-5-5
+    author: YurK
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: last_name
+        indexName: last_name_index
+        tableName: persons
+- changeSet:
+    id: sprint-5-6
+    author: YurK
+    changes:
+    - addColumn:
+        tableName: persons
+        column:
+            name: person_settings_id
+            type: BIGINT
+- changeSet:
+    id: sprint-5-7
+    author: YurK
+    changes:
+    - dropColumn:
+        columns:
+        - column:
+            name: person_id
+        tableName: person_settings
+- changeSet:
+    id: sprint-5-8
+    author: YurK
+    changes:
+    - addNotNullConstraint:
+        tableName: persons
+        columnName: person_settings_id
+        constraintName: non_null_person_settings
+- changeSet:
+    id: sprint-5-9
+    author: YurK
+    changes:
+    - addUniqueConstraint:
+        columnNames: entity_id, person_id
+        constraintName: entity_person_index
+        tableName: notifications
+- changeSet:
+      id: sprint-5-10
+      author: DiM
+      changes:
+        - addColumn:
+            tableName: dialogs
+            column:
+                name: is_deleted
+                type: BOOLEAN

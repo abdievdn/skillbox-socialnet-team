@@ -1,0 +1,9 @@
+.idea/
+target/
+log/
+*.iml
+*.iws
+Dockerfile
+/.jpb/
+application-dim.yml
+.gitlab-ci.yml

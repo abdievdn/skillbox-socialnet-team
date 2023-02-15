@@ -1,0 +1,31 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+
+  redis:
+    host: localhost
+  cache:
+    type: redis
+    time-to-live: 3000000
+
+  datasource:
+#    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5434/postgres?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: postgres
+    password: test
+
+
+auth:
+  pass-restore: http://localhost:8080/change-password?token=
+  email-restore: http://localhost:8080/shift-email?token=
+
+logging:
+  level:
+    root: WARN
+  file:
+    max-history: 1
+    path: log
+    uploadLogs: false
+
+user:
+  time-to-delete: 10000

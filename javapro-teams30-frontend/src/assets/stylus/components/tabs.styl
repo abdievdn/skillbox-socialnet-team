@@ -1,0 +1,44 @@
+@import '../../../assets/stylus/base/vars.styl';
+
+.header__tabs {
+  background: #fff;
+  box-shadow: standart-boxshadow;
+  position: fixed;
+  top: header-height;
+  left: sidebar-width;
+  right: 0;
+  padding: 0 20px;
+  z-index: 10;
+
+  @media (max-width: breakpoint-xxl) {
+    left: sidebar-width-xl;
+  }
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  height: 55px;
+
+  &__item {
+    display: flex;
+    height: 100%;
+    padding: 0 10px;
+    border-bottom: 4px solid transparent;
+    color: #808080;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.4s;
+
+    &+& {
+      margin-left: 50px;
+    }
+
+    &.active {
+      transition: all 0.4s;
+      color: eucalypt;
+      border-bottom-color: eucalypt;
+    }
+  }
+}
